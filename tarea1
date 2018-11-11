@@ -1,0 +1,25 @@
+#Construye un iterador (for Loop)
+#que consuma el índice de los posts https://jsonplaceholder.typicode.com/posts/
+#e imprima todos los títulos de los posts.
+#Por favor nota la estructura de datos:
+#El índice es una lista de diccionarios,
+#es decir, empieza con corchetes.
+#El json.loads() será capaz de leerlo,
+#pero para imprimir los datos debes tener esto en cuenta.
+
+#Segui los pasos de la documentación que vimos el viernes, Atte. Isa
+
+import requests
+import json
+
+my_request = requests.get('https://jsonplaceholder.typicode.com/posts' )
+print(my_request.text)
+
+print(type(my_request.text))
+
+my_cadena = json.loads(my_request.text)
+print(my_cadena)
+print(type(my_cadena))
+
+for idpost in my_cadena:
+    print('Indices:',idpost['id'],':',idpost['title'])
